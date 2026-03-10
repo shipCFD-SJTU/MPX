@@ -1,0 +1,2 @@
+# OpenFoam_stratifiedFoam
+基于Boussinesq假设的温盐分层流求解器
