@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+lx0 -1;
+ly0 -0.5;
+lz0 -0.5;
+
+lx1 4;
+ly1 0.5;
+lz1 0.5;
+
+factor 50;
+
+xCells #calc "round(($lx1 - $lx0)*$factor)";
+yCells #calc "round(($ly1 - $ly0)*$factor)";
+zCells #calc "round(($lz1 - $lz0)*$factor)";
+
+vertices
+(
+    ($lx0 $ly0 $lz0)
+    ($lx1 $ly0 $lz0)
+    ($lx1 $ly1 $lz0)
+    ($lx0 $ly1 $lz0)
+    ($lx0 $ly0 $lz1)
+    ($lx1 $ly0 $lz1)
+    ($lx1 $ly1 $lz1)
+    ($lx0 $ly1 $lz1)
+);
+
+edges
+(
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) ($xCells $yCells $zCells) simpleGrading (1 1 1)
+);
+
+boundary
+(
+    upper
+    {
+        type wall;
+        faces
+        (
+            (4 5 6 7)
+        );
+    }
+    bottom
+    {
+        type wall;
+        faces
+        (
+            (0 3 2 1)
+        );
+    }
+    side
+    {
+        type wall;
+        faces
+        (
+            (1 5 4 0)
+        );
+    }
+    midPlane
+    {
+        type wall;
+        faces
+        (
+            (3 7 6 2)
+        );
+    }
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (2 6 5 1)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+// ************************************************************************* //

@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+expressions
+(
+	temperature1
+	{
+		field T;
+		expression "300 + 15 * pos().z";
+		condition "pos().z > -0.3 && pos().z < 0.3" ;
+	}
+	
+	temperature2
+	{
+		field T;
+		expression "304.5";
+		condition "pos().z > 0.3" ;
+	}
+	
+	temperature3
+	{
+		field T;
+		expression "295.5";
+		condition "pos().z < -0.3" ;
+	}
+	
+	salinity1
+	{
+		field S;
+		expression "100 - 15*pos().z";
+		condition "pos().z > -0.3 && pos().z < 0.3" ;
+	}
+	
+	salinity2
+	{
+		field S;
+		expression "95.5";
+		condition "pos().z > 0.3" ;
+	}
+
+	salinity3
+	{
+		field S;
+		expression "104.5";
+		condition "pos().z < -0.3" ;
+	}
+
+
+);
+
+
+// ************************************************************************* //

@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      alphat;//湍流热扩惨率，在层流中不重要，不影响计算
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-7;
+
+boundaryField
+{
+    inlet
+    {
+        type            zeroGradient;
+    }
+
+    outlet
+    {
+        type           zeroGradient;
+    }
+    
+    sphere
+    {
+        type            alphatJayatillekeWallFunction;
+        Prt		0.9;
+    	value		uniform 1e-7;
+    }
+    
+    top
+    {
+//        type            alphatJayatillekeWallFunction;
+//        Prt             0.1;
+//        value           uniform 0;
+        type            zeroGradient;
+    }
+    
+    bottom
+    {
+//        type            alphatJayatillekeWallFunction;
+//        Prt             0.1;
+//        value           uniform 0;
+        type            zeroGradient;
+    }
+    
+    "(side1|side2)"
+    {
+        type            symmetry;
+    }
+    
+   
+}                                                                                    
+
+
+// ************************************************************************* //

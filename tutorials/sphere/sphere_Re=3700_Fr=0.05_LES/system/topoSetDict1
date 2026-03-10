@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |				
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9                                   	
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+   {
+        name    crefine;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+        	box (0.06 -0.06 -0.06) (3 0.06 0.06);
+        }
+    }
+   
+);
+
+// ************************************************************************* //
