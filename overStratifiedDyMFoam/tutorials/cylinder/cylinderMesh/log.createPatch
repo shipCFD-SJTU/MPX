@@ -1,0 +1,62 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 58cda5c3-20240123 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : createPatch -overwrite
+Date   : Apr 15 2026
+Time   : 14:49:57
+Host   : dyfluid-virtual-machine
+PID    : 5192
+I/O    : uncollated
+Case   : /home/dyfluid/OpenFOAM/OpenFOAM-v2106/mysolvers/overStratifiedDyMFoam/tutorials/cylinder/cylinderMesh
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Reading "system/createPatchDict"
+
+Adding new patch oversetPatch as patch 3 from 
+{
+    type            overset;
+}
+
+Adding new patch walls as patch 4 from 
+{
+    type            wall;
+}
+
+Adding new patch frontAndBack as patch 5 from 
+{
+    type            empty;
+}
+
+
+Moving faces from patch otherSide to patch 3
+Moving faces from patch originalPatch to patch 4
+Moving faces from patch sides to patch 5
+
+Doing topology modification to order faces.
+
+Not synchronising points.
+
+Removing patches with no faces in them.
+
+Removing zero-sized patch sides type wall at position 0
+Removing zero-sized patch originalPatch type patch at position 1
+Removing zero-sized patch otherSide type patch at position 2
+Removing patches.
+Writing repatched mesh to 0
+
+End
+

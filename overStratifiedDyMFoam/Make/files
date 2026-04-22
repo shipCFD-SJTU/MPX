@@ -1,0 +1,3 @@
+overStratifiedDyMFoam.C
+
+EXE = $(FOAM_APPBIN)/overStratifiedDyMFoam

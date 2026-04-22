@@ -1,0 +1,79 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 58cda5c3-20240123 OPENFOAM=2106
+Arch   : "LSB;label=32;scalar=64"
+Exec   : extrudeMesh
+Date   : Apr 15 2026
+Time   : 14:49:57
+Host   : dyfluid-virtual-machine
+PID    : 5191
+I/O    : uncollated
+Case   : /home/dyfluid/OpenFOAM/OpenFOAM-v2106/mysolvers/overStratifiedDyMFoam/tutorials/cylinder/cylinderMesh
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Selecting extrudeModel linearNormal
+Selected extrudeModel for linearNormal using coeffs 
+{
+    thickness       0.7;
+}
+
+Extruding from surface using model linearNormal
+Not collapsing any edges after extrusion
+
+Extruding surfaceMesh read from file "/home/dyfluid/OpenFOAM/OpenFOAM-v2106/mysolvers/overStratifiedDyMFoam/tutorials/cylinder/cylinderMesh/constant/triSurface/cylinder.vtk"
+
+Header   : "# vtk DataFile Version 4.0"
+Version  : 4
+Title    : "vtk output"
+dataType : "ASCII"
+line:4 tag:DATASET
+geomType : POLYDATA
+line:5 tag:POINTS
+Reading 150 coordinates
+line:57 tag:POLYGONS
+Reading 75 faces (single block)
+line:134 tag:POINT_DATA
+line:135 tag:NORMALS
+Reading vector Normals of type float
+line:187 tag:TEXTURE_COORDINATES
+Reading texture coords TCoords dimension 2 of type float
+Read points:150 cells:0 faces:75 lines:0
+
+Cell fields:
+
+
+Point fields:
+Read 1 vectorField fields:
+Size	Name
+----	----
+150	Normals
+
+
+
+Other fields:
+Extruding surface with :
+    points     : 150
+    faces      : 75
+    normals[0] : (0.999122 -8.09094e-19 -0.0418859)
+
+Mesh bounding box : (-1.19895 -0.05 -1.19974) (1.2 0.05 1.19974)
+        with span : (2.39895 0.1 2.39947)
+Merge distance    : 0
+
+Writing mesh to "/home/dyfluid/OpenFOAM/OpenFOAM-v2106/mysolvers/overStratifiedDyMFoam/tutorials/cylinder/cylinderMesh/constant/region0"
+
+End
+
