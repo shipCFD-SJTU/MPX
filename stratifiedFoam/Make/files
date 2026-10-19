@@ -1,3 +1,0 @@
-stratifiedFoam.C
-
-EXE = $(FOAM_APPBIN)/stratifiedFoam

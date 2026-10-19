@@ -8,9 +8,9 @@
     (
         fvm::ddt(S)
       + fvm::div(phi, S)
-      - fvm::laplacian(Kst, S)      //ysj,待添加盐分子扩散系数
+      - fvm::laplacian(Kst, S)   
      ==
-       fvOptions(S)                             //ysj,待添加盐度辐射源项
+       fvOptions(S)                         
     );
 
     SEqn.relax();

@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     stratifiedFoam;
+application     MPX;
 
 startFrom       latestTime;
 
